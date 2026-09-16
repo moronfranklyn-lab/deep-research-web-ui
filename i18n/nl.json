@@ -1,0 +1,263 @@
+{
+  "language": "Nederlands",
+  "modelThinking": "Nadenken...",
+  "modelThinkingComplete": "Nadenken klaar",
+  "invalidStructuredOutput": "Het model heeft content geretourneerd die onvolledig of ongeldig is en niet kan worden verwerkt. Probeer een groter of \"slimmer\" model te gebruiken.",
+  "index": {
+    "projectDescription": "Deep Research is een AI-onderzoeksassistent: geef een vraag op en de AI plant webzoekopdrachten, graaft in meerdere rondes dieper, verifieert bevindingen aan de hand van echte bronpagina's en schrijft een rapport met bronvermeldingen.\nAI-reacties worden gestreamd voor realtime feedback, en het onderzoeksproces wordt gevisualiseerd met een boomdiagram.\nIn de clientmodus worden alle API-aanvragen rechtstreeks vanuit uw browser verzonden en worden er geen gegevens extern opgeslagen.",
+    "missingConfigTitle": "Configuratie niet compleet",
+    "missingConfigDescription": "Voor dit project moet u uw eigen API-sleutels meenemen."
+  },
+  "settings": {
+    "title": "Instellingen",
+    "disclaimer": "Instellingen zijn lokaal opgeslagen in de browser.",
+    "save": "Opslaan",
+    "ai": {
+      "provider": "AI Provider",
+      "apiKey": "API sleutel",
+      "apiBase": "API Basis-URL",
+      "model": "Model",
+      "contextSize": "Contextlengte",
+      "contextSizeHelp": "Het maximale aantal tokens dat naar het model wordt verzonden. Kan niet groter zijn dan de contextlengte van het model.",
+      "providers": {
+        "openaiCompatible": {
+          "title": "OpenAI-compatible",
+          "description": "Elke provider die compatibel is met de OpenAI-API. Let op: Sommige providers hebben hun eigen opties voor betere prestaties."
+        },
+        "siliconflow": {
+          "title": "SiliconFlow",
+          "description": "Biedt ¥14 (€1,85) gratis credits bij registratie. Krijg één API-sleutel bij {0}."
+        },
+        "infiniai": {
+          "title": "Infiniai",
+          "description": "Na registratie kunt u zonder drempels de volwaardige DeepSeek R1 en andere inferentie-versnelde modellen gebruiken. Genereer een API key na inloggen op {0}."
+        }
+      }
+    },
+    "webSearch": {
+      "provider": "Zoekmachine provider",
+      "apiKey": "API-sleutel",
+      "queryLanguage": "Zoekopdracht taal",
+      "queryLanguageHelp": "De taal van de zoekopdracht. Handig als u zoekresultaten in een andere taal wilt krijgen.\nBij het schrijven van conclusies gebruikt het AI-model nog steeds dezelfde taal als de web-UI.",
+      "providers": {
+        "tavily": {
+          "help": "Vergelijkbaar met Firecrawl, maar biedt 1000 gratis credits / maand. Krijg één API-sleutel bij {0}.",
+          "advancedSearch": "Uitgebreid zoeken",
+          "advancedSearchHelp": "Verkrijg betere resultaten. Kost elke keer 1 credit extra.",
+          "searchTopic": "Zoekonderwerp",
+          "searchTopicHelp": "Optimaliseer de zoekopdracht voor het geselecteerde onderwerp met op maat gemaakte en samengestelde informatie. Standaard 'general'."
+        },
+        "firecrawl": {
+          "help": "Ontvang een API-sleutel bij {0} als u de officiële service gebruikt."
+        },
+        "crw": {
+          "help": "Firecrawl-compatibele webscraper (één binary; self-host of cloud). Ontvang een API-sleutel bij {0} als u de clouddienst gebruikt, of stel de API-basis-URL in op uw zelf-gehoste server."
+        },
+        "google-pse": {
+          "title": "Google PSE",
+          "help": "Gebruikt Google Programmable Search Engine. Vereist een API-sleutel en een PSE-ID van Google Cloud Console / PSE Console. Vind details op {0}.",
+          "apiKeyLabel": "Google API-sleutel",
+          "apiKeyPlaceholder": "Voer uw Google API-sleutel in",
+          "pseIdLabel": "Programmable Search Engine ID (cx)",
+          "pseIdPlaceholder": "Voer uw PSE ID (cx-waarde) in"
+        },
+        "youcom": {
+          "help": "Zoeken op het web via de You.com Search API. Werkt zonder API-sleutel (beperkt dagelijks quotum); voeg een sleutel toe op {0} voor hogere limieten.",
+          "apiKeyPlaceholder": "Optioneel — laat leeg voor de gratis sleutelloze variant"
+        }
+      },
+      "concurrencyLimitHelp": "Beperk de gelijktijdige zoektaken. Dit is handig om te voorkomen dat de zoekmachine overbelast raakt en verzoeken mislukken.",
+      "concurrencyLimit": "Concurrency Limit",
+      "apiBase": "API Basis-URL"
+    }
+  },
+  "researchTopic": {
+    "title": "1. Onderzoeksonderwerp",
+    "inputTitle": "Onderzoeksonderwerp",
+    "placeholder": "Wat je maar wilt onderzoeken...",
+    "numOfQuestions": "Aantal vragen",
+    "numOfQuestionsHelp": "Het aantal vervolgvragen ter verduidelijking.",
+    "depth": "Diepte",
+    "depthHelp": "Aantal iteraties.",
+    "breadth": "Breedte",
+    "breadthHelp": "Aantal zoekopdrachten in de eerste iteratie. De zoekbreedte van elke iteratie is de helft van de vorige.",
+    "required": "Dit veld is verplicht.",
+    "integerRange": "Voer een geheel getal van {min} tot {max} in.",
+    "start": "Begin Onderzoek",
+    "researching": "Onderzoeken..."
+  },
+  "modelFeedback": {
+    "title": "2. Modelfeedback",
+    "description": "De AI stelt u een aantal vervolgvragen om de onderzoeksrichting te verduidelijken.",
+    "waiting": "Wachten op feedback van het model...",
+    "submit": "Antwoord versturen",
+    "continue": "Onderzoek voortzetten",
+    "error": "Fout bij het ontvangen van feedback: {0}",
+    "noQuestions": "Je vraag is al duidelijk genoeg. Er zijn geen vervolgvragen nodig — je kunt doorgaan."
+  },
+  "webBrowsing": {
+    "readingSource": "Bronpagina’s lezen…",
+    "title": "3. Zoeken op het Internet",
+    "description": "De AI zal vervolgens het internet doorzoeken op basis van ons onderzoeksdoel, en herhalen totdat de diepte is bereikt.",
+    "clickToView": "Klik op een onderliggend knooppunt om details te bekijken.",
+    "nodeDetails": "Knooppuntdetails",
+    "startNode": {
+      "description": "Dit is het begin van uw diepgaande onderzoeksreis!"
+    },
+    "researchGoal": "Onderzoeksdoel",
+    "visitedUrls": "Bezochte websites",
+    "learnings": "Lessen",
+    "generating": "Genereren...",
+    "nodeFailed": "Zoeken mislukt",
+    "nodeFailedToast": "Zoekknooppunt \"{label}\" is mislukt",
+    "followUpQuestions": "Vervolgvragen",
+    "retry": "Opnieuw proberen",
+    "noSearchResult": "Geen zoekresultaten gevonden"
+  },
+  "researchReport": {
+    "title": "4. Onderzoeksrapport",
+    "exportPdf": "Afdrukken (PDF)",
+    "exportMarkdown": "Markdown exporteren",
+    "sources": "Bronnen",
+    "waiting": "Wachten op het rapport...",
+    "generating": "Rapport genereren...",
+    "regenerate": "Regenereren",
+    "generateFailed": "Rapport genereren mislukt: {0}",
+    "exportFailed": "Export mislukt",
+    "incompatibleBrowser": "Niet-ondersteunde browser",
+    "incompatibleBrowserDescription": "Uw browser ondersteunt deze printmethode niet. Overweeg een moderne browser te gebruiken, of exporteer de Markdown en converteer deze handmatig naar PDF met behulp van andere diensten zoals https://md-to-pdf.fly.dev (Gebruik op eigen risico)"
+  },
+  "error": {
+    "requestBlockedByCORS": "De huidige API-provider staat mogelijk geen cross-origin-verzoeken toe. Probeer een andere API-provider of neem contact op met de provider voor ondersteuning.."
+  },
+  "autoUpdate": {
+    "newVersionTitle": "Nieuwe versie beschikbaar: {0}",
+    "newVersionDescription": "Let op: Als u een zelfgehoste versie gebruikt, implementeer deze dan opnieuw om nieuwe functies en bugfixes te krijgen.",
+    "refresh": "Pagina vernieuwen",
+    "dismiss": "Afwijzen"
+  },
+  "exitFullscreen": "Volledig scherm verlaten",
+  "fullscreen": "Volledig scherm",
+  "graphControls": {
+    "zoomIn": "Inzoomen",
+    "zoomOut": "Uitzoomen",
+    "fitView": "Diagram passend weergeven",
+    "lockView": "Diagraminteractie vergrendelen",
+    "unlockView": "Diagraminteractie ontgrendelen"
+  },
+  "serverMode": {
+    "title": "Servermodus",
+    "description": "Momenteel draait in servermodus. Alle configuraties worden door de server geleverd, geen handmatige API-sleutels nodig.",
+    "loading": "Configuratie laden...",
+    "loadFailed": "Configuratie laden mislukt",
+    "aiProvider": "AI-provider",
+    "aiModel": "AI-model",
+    "webSearchProvider": "Zoekmachine provider",
+    "searchLanguage": "Zoektaal",
+    "configNotice": "Huidige configuratie is ingesteld door de serverbeheerder. Neem contact op met de beheerder voor wijzigingen."
+  },
+  "history": {
+    "title": "Geschiedenis",
+    "export": "Exporteren",
+    "import": "Importeren",
+    "empty": "Geen geschiedenisrecords",
+    "load": "Laden",
+    "delete": "Verwijderen",
+    "confirmDelete": "Bevestig verwijdering van dit geschiedenisrecord?",
+    "deleteAll": "Alles verwijderen",
+    "confirmDeleteAll": "Bevestig verwijdering van alle geschiedenisrecords?",
+    "importSuccess": "Importeren gelukt",
+    "importFailed": "Importeren mislukt",
+    "depth": "Diepte",
+    "breadth": "Breedte",
+    "questions": "Vragen"
+  },
+  "researchSession": {
+    "status": {
+      "idle": "Gereed",
+      "running": "Bezig",
+      "awaiting-input": "Wachten op antwoorden",
+      "cancelling": "Annuleren",
+      "completed": "Voltooid",
+      "failed": "Mislukt",
+      "cancelled": "Geannuleerd",
+      "timed-out": "Time-out"
+    },
+    "phase": {
+      "feedback": "modelfeedback",
+      "research": "webonderzoek",
+      "report": "rapport"
+    },
+    "noFeedback": "De modelfeedback bevatte geen vragen.",
+    "noLearnings": "Het onderzoek is zonder resultaten voltooid.",
+    "noReport": "Het rapport bevatte geen inhoud.",
+    "timeoutMessage": "De bewerking heeft de tijdslimiet overschreden. Je kunt het nu opnieuw proberen."
+  },
+  "common": {
+    "delete": "Verwijderen",
+    "cancel": "Annuleren",
+    "language": "Taal",
+    "showPassword": "Wachtwoord tonen",
+    "hidePassword": "Wachtwoord verbergen",
+    "useLightTheme": "Licht thema gebruiken",
+    "useDarkTheme": "Donker thema gebruiken"
+  },
+  "researchEvidence": {
+    "reading": "Bronpagina’s lezen…",
+    "title": "Conclusies en bewijs",
+    "close": "Bewijspaneel sluiten",
+    "open": "Bewijs bekijken en verder onderzoeken",
+    "finding": "Selecteer een bronverwijzing",
+    "page": "Webpaginainhoud",
+    "searchResult": "Zoekinhoud",
+    "excerpt": "Bronfragment",
+    "excerptHelp": "Dit fragment is vergeleken met de opgehaalde inhoud. Bekijk de context om te beoordelen of het de conclusie ondersteunt.",
+    "retrievedAt": "Opgehaald: {date}",
+    "missing": "Er is geen passend bronfragment opgeslagen. Open de bron of start vervolgonderzoek voor nieuw bewijs.",
+    "request": "Wat moet verder worden onderzocht?",
+    "scope": "Onderzoek deze vraag, werk alleen verwijzende blokken bij (tabellen en lijsten als geheel) en sla een nieuw geschiedenisitem op.",
+    "placeholder": "Bijvoorbeeld: Deze prijs is mogelijk verouderd. Controleer de nieuwste officiële prijs en voorwaarden.",
+    "submit": "Onderzoeken en rapport bijwerken",
+    "searching": "Aanvullend bewijs zoeken…",
+    "revising": "Gerelateerde blokken controleren en bijwerken…",
+    "cancel": "Vervolgonderzoek annuleren",
+    "saved": "Vervolgonderzoek apart opgeslagen. Het oorspronkelijke rapport blijft in de geschiedenis beschikbaar.",
+    "failed": "Vervolgonderzoek kon niet worden voltooid. Het oorspronkelijke rapport is behouden. {message}",
+    "cancelled": "Vervolgonderzoek gestopt. Het oorspronkelijke rapport is behouden.",
+    "historyTitle": "{query} (vervolgonderzoek)"
+  },
+  "searchPlan": {
+    "intent": {
+      "general": "Zoeken op het web",
+      "news": "Nieuws zoeken"
+    },
+    "time": {
+      "day": "Afgelopen dag",
+      "week": "Afgelopen week",
+      "month": "Afgelopen maand",
+      "year": "Afgelopen jaar"
+    },
+    "rewritten": "Opnieuw gezocht met een aangepaste zoekopdracht",
+    "limited": "De zoekdienst heeft deze filters niet toegepast: {filters}. De broninhoud wordt gecontroleerd.",
+    "filters": {
+      "news": "nieuwstype",
+      "time": "datumbereik",
+      "domains": "brondomeinen",
+      "language": "zoektaal"
+    },
+    "published": "Brondatum: {date}"
+  },
+  "searchAssessment": {
+    "title": "Geen bruikbaar bewijs uit deze zoekactie",
+    "reasons": {
+      "verified": "Bruikbaar bewijs gevonden.",
+      "no_results": "De zoekdienst leverde geen bruikbare inhoud. Pas de zoekopdracht aan of controleer de periode en bronnen.",
+      "irrelevant": "Het model beoordeelde de resultaten als niet passend bij het onderzoeksdoel of de gevraagde periode.",
+      "no_findings": "Mogelijk relevante bronnen gevonden, maar geen bevindingen die de vraag beantwoorden.",
+      "unmatched_sources": "De bevindingen konden niet aan gevonden relevante bronnen worden gekoppeld en zijn niet in het rapport opgenomen.",
+      "unmatched_quotes": "De citaten kwamen niet overeen met de opgehaalde inhoud; deze bevindingen zijn niet in het rapport opgenomen."
+    },
+    "counts": "Laatste zoekactie: {results} resultaten, {relevant} relevant beoordeeld; {findings} bevindingen, {verified} geverifieerd.",
+    "extractionRetried": "Het ophalen van letterlijke citaten is opnieuw geprobeerd."
+  }
+}

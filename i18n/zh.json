@@ -1,0 +1,267 @@
+{
+  "language": "中文",
+  "modelThinking": "思考中...",
+  "modelThinkingComplete": "思考完毕",
+  "invalidStructuredOutput": "模型返回的内容无效或不完整，无法解析。请尝试换一个更大或者更“聪明”的模型。",
+  "index": {
+    "projectDescription": "Deep Research 是一个 AI 研究助手：给定一个问题，它会自动规划网络搜索、多轮深入挖掘、对照真实来源核验结论，并生成带引用的研究报告。\nAI 回答支持流式实时反馈，搜索过程会以树状结构可视化展示。\n在客户端模式下，所有 API 请求均直接从浏览器发出，不会存储任何远程数据。",
+    "missingConfigTitle": "需要配置 API",
+    "missingConfigDescription": "本项目需要您自备 AI 和联网搜索服务的配置 (Bring Your Own Key)"
+  },
+  "settings": {
+    "title": "设置",
+    "disclaimer": "所有设置本地保存",
+    "save": "保存",
+    "ai": {
+      "provider": "AI 服务",
+      "apiKey": "API 密钥",
+      "apiBase": "API Base URL",
+      "model": "模型名称",
+      "contextSize": "上下文长度",
+      "contextSizeHelp": "发送给模型的最大 token 数量，不能超过模型本身支持的上下文长度。",
+      "providers": {
+        "openaiCompatible": {
+          "title": "OpenAI Compatible",
+          "description": "任意兼容 OpenAI 接口格式的供应商。\n注：为了改进兼容性，部分供应商有单独的选项，请展开查看。"
+        },
+        "siliconflow": {
+          "title": "SiliconFlow 硅基流动",
+          "description": "注册赠送 ¥14 免费额度。在 {0} 生成一个 API key。"
+        },
+        "infiniai": {
+          "title": "InfiniAI 无问芯穹",
+          "description": "注册后，无门槛免费用 DeepSeek R1 满血等推理加速版模型。登录 {0} 后生成 API key。"
+        },
+        "302-ai": {
+          "title": "302.AI",
+          "description": "注册赠送 $1 免费额度。在 {0} 生成一个 API key。"
+        }
+      }
+    },
+    "webSearch": {
+      "provider": "联网搜索服务",
+      "apiKey": "API 密钥",
+      "queryLanguage": "使用语言",
+      "queryLanguageHelp": "修改搜索词的语言。如果你想获取不同的搜索结果（比如查询高质量的英文资料），可以在这里修改。\nAI 模型在总结的时候仍然会使用当前网页的语言。",
+      "providers": {
+        "firecrawl": {
+          "help": "如果你使用的是官方服务，请在 {0} 获取 API key。"
+        },
+        "crw": {
+          "help": "与 Firecrawl 兼容的网页抓取工具（单一二进制文件；可自托管或使用云服务）。如果你使用的是云服务，请在 {0} 获取 API key；或将 API 基础 URL 设置为你的自托管服务器地址。"
+        },
+        "tavily": {
+          "help": "和 Firecrawl 类似，不过提供了每月 1000 次免费搜索。在 {0} 获取一个 API key。",
+          "advancedSearchHelp": "获得更高质量的搜索结果。每次多消耗一个搜索点数 (credit)。",
+          "searchTopic": "搜索领域",
+          "advancedSearch": "高质量搜索",
+          "searchTopicHelp": "搜索特定领域的信息，获得更精确的结果。默认为“通用” (general)。"
+        },
+        "google-pse": {
+          "title": "Google PSE",
+          "help": "使用 Google 可编程搜索引擎。需要来自 Google Cloud Console / PSE Console 的 API 密钥和 PSE ID。在 {0} 查看详情。",
+          "apiKeyLabel": "Google API 密钥",
+          "apiKeyPlaceholder": "输入你的 Google API 密钥",
+          "pseIdLabel": "可编程搜索引擎 ID (cx)",
+          "pseIdPlaceholder": "输入你的 PSE ID (cx 值)"
+        },
+        "youcom": {
+          "help": "通过 You.com 搜索 API 进行网页搜索。无需 API 密钥即可使用（每日配额有限）；在 {0} 获取密钥可获得更高限额。",
+          "apiKeyPlaceholder": "可选 — 留空则使用免密钥免费额度"
+        }
+      },
+      "concurrencyLimit": "并发数",
+      "concurrencyLimitHelp": "限制同时进行的搜索数量。这样可以避免被 API 服务限流，导致请求失败。",
+      "apiBase": "API Base URL"
+    }
+  },
+  "researchTopic": {
+    "title": "1. 研究主题",
+    "inputTitle": "研究主题",
+    "placeholder": "任何你想了解的内容...",
+    "numOfQuestions": "问题数量",
+    "numOfQuestionsHelp": "AI 询问你的问题数量。这些问题能让 AI 更好地了解你的研究目标。",
+    "depth": "研究深度 (Depth)",
+    "depthHelp": "联网搜索的迭代轮数。",
+    "breadth": "研究广度 (Breadth)",
+    "breadthHelp": "第一次迭代中的搜索次数。后续每轮迭代的搜索次数为上一轮的一半。",
+    "required": "此项为必填项。",
+    "integerRange": "请输入 {min} 到 {max} 之间的整数。",
+    "start": "开始研究",
+    "researching": "研究中..."
+  },
+  "modelFeedback": {
+    "title": "2. 模型反馈",
+    "description": "AI 将会跟你确认一些细节，帮助你明确研究方向。",
+    "waiting": "等待模型反馈...",
+    "submit": "提交回答",
+    "continue": "继续研究",
+    "noQuestions": "问题已经足够清晰，无需补充追问，可以直接继续。",
+    "error": "获取反馈失败：{0}"
+  },
+  "webBrowsing": {
+    "readingSource": "正在读取来源正文…",
+    "title": "3. 联网搜索",
+    "description": "AI 将根据上述信息联网搜索并自动迭代，直到迭代次数 = depth。",
+    "clickToView": "点击下面的节点查看搜索详情。",
+    "nodeDetails": "节点详情",
+    "startNode": {
+      "description": "这是本次研究的起点"
+    },
+    "researchGoal": "研究目标",
+    "visitedUrls": "访问网址",
+    "learnings": "结论",
+    "generating": "生成中...",
+    "nodeFailed": "搜索失败",
+    "nodeFailedToast": "搜索步骤 “{label}” 失败",
+    "followUpQuestions": "后续问题",
+    "retry": "重试",
+    "noSearchResult": "未找到搜索结果"
+  },
+  "researchReport": {
+    "title": "4. 研究报告",
+    "exportPdf": "打印 (PDF)",
+    "exportMarkdown": "导出 Markdown",
+    "sources": "来源",
+    "waiting": "等待报告...",
+    "generating": "生成报告中...",
+    "regenerate": "重新生成",
+    "generateFailed": "生成报告失败：{0}",
+    "exportFailed": "导出失败",
+    "incompatibleBrowserDescription": "您的浏览器不支持这种打印方式，请考虑改用更现代的浏览器，或者导出 Markdown 并手动使用其他服务（如 https://md-to-pdf.fly.dev）将其转换为 PDF（不承诺安全性）。",
+    "incompatibleBrowser": "浏览器可能较旧"
+  },
+  "error": {
+    "requestBlockedByCORS": "当前 API 服务可能不允许接口跨域，请换一个服务试试，或者向服务方反馈。"
+  },
+  "autoUpdate": {
+    "newVersionTitle": "发现新版本：{0}",
+    "newVersionDescription": "注：如果您使用的是自部署页面，请使用最新代码重新部署，即可获得最新功能和 bug 修复。",
+    "refresh": "刷新",
+    "dismiss": "忽略"
+  },
+  "fullscreen": "全屏",
+  "exitFullscreen": "退出全屏",
+  "graphControls": {
+    "zoomIn": "放大",
+    "zoomOut": "缩小",
+    "fitView": "适应画布",
+    "lockView": "锁定画布交互",
+    "unlockView": "解锁画布交互"
+  },
+  "serverMode": {
+    "title": "服务端模式",
+    "description": "当前运行在服务端模式，所有配置由服务器提供，无需手动设置 API 密钥。",
+    "loading": "加载配置中...",
+    "loadFailed": "加载配置失败",
+    "aiProvider": "AI 提供商",
+    "aiModel": "AI 模型",
+    "webSearchProvider": "搜索服务提供商",
+    "searchLanguage": "搜索语言",
+    "configNotice": "当前配置由服务器管理员设置，如需修改请联系管理员。"
+  },
+  "history": {
+    "title": "历史记录",
+    "export": "导出",
+    "import": "导入",
+    "empty": "暂无历史记录",
+    "load": "加载",
+    "delete": "删除",
+    "confirmDelete": "确认删除这条历史记录？",
+    "deleteAll": "删除全部",
+    "confirmDeleteAll": "确认删除所有历史记录？",
+    "importSuccess": "导入成功",
+    "importFailed": "导入失败",
+    "depth": "深度",
+    "breadth": "广度",
+    "questions": "问题数"
+  },
+  "researchSession": {
+    "status": {
+      "idle": "就绪",
+      "running": "进行中",
+      "awaiting-input": "等待回答",
+      "cancelling": "正在取消",
+      "completed": "已完成",
+      "failed": "失败",
+      "cancelled": "已取消",
+      "timed-out": "已超时"
+    },
+    "phase": {
+      "feedback": "模型反馈",
+      "research": "联网研究",
+      "report": "研究报告"
+    },
+    "noFeedback": "模型反馈没有返回问题。",
+    "noLearnings": "研究已结束，但没有生成结论。",
+    "noReport": "报告生成没有返回内容。",
+    "timeoutMessage": "操作已超过时间限制，你现在可以重试。"
+  },
+  "common": {
+    "delete": "删除",
+    "cancel": "取消",
+    "language": "语言",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码",
+    "useLightTheme": "切换到浅色主题",
+    "useDarkTheme": "切换到深色主题"
+  },
+  "researchEvidence": {
+    "reading": "正在读取来源正文…",
+    "title": "结论与证据",
+    "close": "关闭证据面板",
+    "open": "查看证据与补查",
+    "finding": "选择报告引用",
+    "page": "网页正文",
+    "searchResult": "检索内容",
+    "excerpt": "来源摘录",
+    "excerptHelp": "摘录已与本次检索内容匹配；是否充分支持结论仍需结合上下文判断。",
+    "retrievedAt": "检索时间：{date}",
+    "missing": "这条结论没有保存可匹配的原文摘录。可以打开来源核对，或发起补查获取新证据。",
+    "request": "需要进一步查清什么？",
+    "scope": "补查会搜索这个问题，只更新引用该结论的段落（表格、列表按整块更新），并另存研究记录。",
+    "placeholder": "例如：这个价格可能过时了，请查找官方最新价格，并核对适用条件。",
+    "submit": "补查并更新报告",
+    "searching": "正在搜索补充证据…",
+    "revising": "正在核对并更新相关段落…",
+    "cancel": "取消补查",
+    "saved": "补查完成，已另存研究记录。原报告保留在历史记录中。",
+    "failed": "补查未完成，原报告已保留。{message}",
+    "cancelled": "补查已停止，原报告已保留。",
+    "historyTitle": "{query}（补查）"
+  },
+  "searchPlan": {
+    "intent": {
+      "general": "网页搜索",
+      "news": "新闻搜索"
+    },
+    "time": {
+      "day": "近一天",
+      "week": "近一周",
+      "month": "近一月",
+      "year": "近一年"
+    },
+    "rewritten": "已改写重查一次",
+    "limited": "当前搜索服务未应用这些过滤条件：{filters}。将根据来源内容核查。",
+    "filters": {
+      "news": "新闻类型",
+      "time": "时间范围",
+      "domains": "来源域名",
+      "language": "检索语言"
+    },
+    "published": "来源标注日期：{date}"
+  },
+  "searchAssessment": {
+    "title": "本次未获得可用证据",
+    "reasons": {
+      "verified": "已获得可用证据。",
+      "no_results": "搜索服务未返回可用内容。可调整查询词，或检查时间和来源范围。",
+      "irrelevant": "模型判断返回内容不符合本次研究目标或时间要求。",
+      "no_findings": "找到可能相关的来源，但未提取出能够回答问题的结论。",
+      "unmatched_sources": "提取的结论未能对应到返回且被判为相关的来源，未纳入报告。",
+      "unmatched_quotes": "结论的来源摘录未能与检索内容匹配，未纳入报告。"
+    },
+    "counts": "最近一次搜索：{results} 条结果，{relevant} 条判为相关；提取 {findings} 条结论，{verified} 条通过校验。",
+    "extractionRetried": "已尝试重新提取原文摘录。"
+  }
+}

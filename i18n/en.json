@@ -1,0 +1,267 @@
+{
+  "language": "English",
+  "modelThinking": "Thinking...",
+  "modelThinkingComplete": "Thinking complete",
+  "invalidStructuredOutput": "The model returned content which is incomplete or invalid and cannot be parsed. Try using a bigger or \"smarter\" model.",
+  "index": {
+    "projectDescription": "Deep Research is an AI research agent: give it a question and it plans web searches, digs deeper across multiple rounds, verifies findings against real source pages, and writes a cited report.\nResponses stream in for realtime feedback, and the research process is visualized as a tree.\nIn Client Mode, all API requests are sent directly from your browser and no data is stored remotely.",
+    "missingConfigTitle": "Config not set",
+    "missingConfigDescription": "This project requires you to bring your own API keys."
+  },
+  "settings": {
+    "title": "Settings",
+    "disclaimer": "Settings are stored locally in your browser.",
+    "save": "Save",
+    "ai": {
+      "provider": "AI Provider",
+      "apiKey": "API Key",
+      "apiBase": "API Base URL",
+      "model": "Model",
+      "contextSize": "Context Length",
+      "contextSizeHelp": "The maximum number of tokens that will be sent to the model. Can't be bigger than the model's context length.",
+      "providers": {
+        "openaiCompatible": {
+          "title": "OpenAI Compatible",
+          "description": "Every provider that is compatible with the OpenAI API. Note: Some providers have their own options for better performance."
+        },
+        "siliconflow": {
+          "title": "SiliconFlow",
+          "description": "Offers ¥14 free credits on register. Get one API key at {0}."
+        },
+        "infiniai": {
+          "title": "InfiniAI",
+          "description": "After registration, you can use the full-powered DeepSeek R1 and other inference-accelerated models without any barriers. Generate an API key after logging in at {0}."
+        },
+        "302-ai": {
+          "title": "302.AI",
+          "description": "Offers $1 free credit on register. Get one API key at {0}."
+        }
+      }
+    },
+    "webSearch": {
+      "provider": "Web Search Provider",
+      "apiKey": "API Key",
+      "queryLanguage": "Query Language",
+      "queryLanguageHelp": "The language of the search query. Useful if you want to get search results in a different language.\nWhen writing conclusions, the AI model will still use the language same as the web UI.",
+      "providers": {
+        "tavily": {
+          "help": "Similar to Firecrawl, but provides 1000 free credits / month. Get one API key at {0}.",
+          "advancedSearch": "Advanced Search",
+          "advancedSearchHelp": "Get higher quality search results. Costs 1 extra credit each time.",
+          "searchTopic": "Search Topic",
+          "searchTopicHelp": "Optimize the search for the selected topic with tailored and curated information. Defaults to 'general'."
+        },
+        "firecrawl": {
+          "help": "Get one API key at {0} if you are using the official service."
+        },
+        "crw": {
+          "help": "Firecrawl-compatible web scraper (single binary; self-host or cloud). Get one API key at {0} if you are using the cloud service, or set the API base URL to your self-hosted server."
+        },
+        "google-pse": {
+          "title": "Google PSE",
+          "help": "Uses Google Programmable Search Engine. Requires an API Key and a PSE ID from Google Cloud Console / PSE Console. Find details at {0}.",
+          "apiKeyLabel": "Google API Key",
+          "apiKeyPlaceholder": "Enter your Google API Key",
+          "pseIdLabel": "Programmable Search Engine ID (cx)",
+          "pseIdPlaceholder": "Enter your PSE ID (cx value)"
+        },
+        "youcom": {
+          "help": "Web search via the You.com Search API. Works without an API key (limited daily quota); add a key at {0} for higher limits.",
+          "apiKeyPlaceholder": "Optional — leave empty for the keyless free tier"
+        }
+      },
+      "concurrencyLimitHelp": "Limit the concurrent search tasks. This is useful to avoid overloading the search provider and causing requests to fail.",
+      "concurrencyLimit": "Concurrency Limit",
+      "apiBase": "API Base URL"
+    }
+  },
+  "researchTopic": {
+    "title": "1. Research Topic",
+    "inputTitle": "Research Topic",
+    "placeholder": "Whatever you want to research...",
+    "numOfQuestions": "Number of Questions",
+    "numOfQuestionsHelp": "The number of follow-up questions to clarify.",
+    "depth": "Depth",
+    "depthHelp": "Number of iterations.",
+    "breadth": "Breadth",
+    "breadthHelp": "Number of searches in the first iteration. The search width of each iteration is half of the previous one.",
+    "required": "This field is required.",
+    "integerRange": "Enter a whole number from {min} to {max}.",
+    "start": "Start Research",
+    "researching": "Researching..."
+  },
+  "modelFeedback": {
+    "title": "2. Model Feedback",
+    "description": "The AI will ask you some follow up questions to help you clarify the research direction.",
+    "waiting": "Waiting for model feedback...",
+    "submit": "Submit Answer",
+    "continue": "Continue Research",
+    "error": "Error getting feedback: {0}",
+    "noQuestions": "Your query is already clear enough. No follow-up questions are needed — you can continue."
+  },
+  "webBrowsing": {
+    "readingSource": "Reading source pages…",
+    "title": "3. Web Browsing",
+    "description": "The AI will then search the web based on our research goal, and iterate until the depth is reached.",
+    "clickToView": "Click a child node to view details.",
+    "nodeDetails": "Node Details",
+    "startNode": {
+      "description": "This is the beginning of your deep research journey!"
+    },
+    "researchGoal": "Research Goal",
+    "visitedUrls": "Visited URLs",
+    "learnings": "Learnings",
+    "generating": "Generating...",
+    "nodeFailed": "Search failed",
+    "nodeFailedToast": "Search node \"{label}\" failed",
+    "followUpQuestions": "Follow-up Questions",
+    "retry": "Retry",
+    "noSearchResult": "No search results found"
+  },
+  "researchReport": {
+    "title": "4. Research Report",
+    "exportPdf": "Print (PDF)",
+    "exportMarkdown": "Export Markdown",
+    "sources": "Sources",
+    "waiting": "Waiting for report...",
+    "generating": "Generating report...",
+    "regenerate": "Regenerate",
+    "incompatibleBrowser": "Incompatibile browser",
+    "incompatibleBrowserDescription": "Your browser does not support this printing method. Please consider using a modern browser, or export the Markdown and manually convert it into PDF using other services, like https://md-to-pdf.fly.dev (Use at your own risk)",
+    "exportFailed": "Export failed",
+    "generateFailed": "Generate report failed: {0}"
+  },
+  "error": {
+    "requestBlockedByCORS": "The current API provider may not allow cross-origin requests. Please try a different service provider or contact the provider for support."
+  },
+  "autoUpdate": {
+    "newVersionTitle": "New version available: {0}",
+    "newVersionDescription": "Note: If you are using a self-hosted version, please re-deploy to get new features and bug fixes.",
+    "refresh": "Refresh page",
+    "dismiss": "Dismiss"
+  },
+  "fullscreen": "Fullscreen",
+  "exitFullscreen": "Exit fullscreen",
+  "graphControls": {
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "fitView": "Fit graph to view",
+    "lockView": "Lock graph interaction",
+    "unlockView": "Unlock graph interaction"
+  },
+  "serverMode": {
+    "title": "Server Mode",
+    "description": "Currently running in server mode. All configurations are provided by the server, no need to set API keys manually.",
+    "loading": "Loading configuration...",
+    "loadFailed": "Failed to load configuration",
+    "aiProvider": "AI Provider",
+    "aiModel": "AI Model",
+    "webSearchProvider": "Web Search Provider",
+    "searchLanguage": "Search Language",
+    "configNotice": "Current configuration is set by the server administrator. Contact the administrator to make changes."
+  },
+  "history": {
+    "title": "History",
+    "export": "Export",
+    "import": "Import",
+    "empty": "No history records",
+    "load": "Load",
+    "delete": "Delete",
+    "deleteAll": "Delete All",
+    "confirmDelete": "Confirm deletion of this history record?",
+    "confirmDeleteAll": "Confirm deletion of all history records?",
+    "importSuccess": "Import successful",
+    "importFailed": "Import failed",
+    "depth": "Depth",
+    "breadth": "Breadth",
+    "questions": "Questions"
+  },
+  "researchSession": {
+    "status": {
+      "idle": "Ready",
+      "running": "Running",
+      "awaiting-input": "Waiting for answers",
+      "cancelling": "Cancelling",
+      "completed": "Completed",
+      "failed": "Failed",
+      "cancelled": "Cancelled",
+      "timed-out": "Timed out"
+    },
+    "phase": {
+      "feedback": "model feedback",
+      "research": "web research",
+      "report": "report"
+    },
+    "noFeedback": "Feedback generation did not produce questions.",
+    "noLearnings": "Research completed without learnings.",
+    "noReport": "Report generation did not produce content.",
+    "timeoutMessage": "The operation exceeded its time limit. You can retry it now."
+  },
+  "common": {
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "language": "Language",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "useLightTheme": "Use light theme",
+    "useDarkTheme": "Use dark theme"
+  },
+  "researchEvidence": {
+    "reading": "Reading source pages…",
+    "title": "Findings and evidence",
+    "close": "Close evidence panel",
+    "open": "Inspect evidence and follow up",
+    "finding": "Select a report citation",
+    "page": "Page content",
+    "searchResult": "Search content",
+    "excerpt": "Source excerpt",
+    "excerptHelp": "This excerpt was matched against retrieved content. Check the context to assess whether it supports the finding.",
+    "retrievedAt": "Retrieved: {date}",
+    "missing": "No matching source excerpt was saved for this finding. Open the source or run a follow-up to collect new evidence.",
+    "request": "What should we check?",
+    "scope": "Search this question, update only blocks citing this finding (tables and lists as whole blocks), and save a separate history entry.",
+    "placeholder": "For example: This price may be outdated. Check the latest official price and its conditions.",
+    "submit": "Research and update report",
+    "searching": "Searching for supporting evidence…",
+    "revising": "Checking and updating related blocks…",
+    "cancel": "Cancel follow-up",
+    "saved": "Follow-up saved as a separate history entry. The original report is still available in history.",
+    "failed": "Follow-up could not finish. The original report was kept. {message}",
+    "cancelled": "Follow-up stopped. The original report was kept.",
+    "historyTitle": "{query} (follow-up)"
+  },
+  "searchPlan": {
+    "intent": {
+      "general": "Web search",
+      "news": "News search"
+    },
+    "time": {
+      "day": "Past day",
+      "week": "Past week",
+      "month": "Past month",
+      "year": "Past year"
+    },
+    "rewritten": "Retried with a revised query",
+    "limited": "The search provider did not apply these filters: {filters}. Source contents will be checked.",
+    "filters": {
+      "news": "news type",
+      "time": "date range",
+      "domains": "source domains",
+      "language": "search language"
+    },
+    "published": "Source date: {date}"
+  },
+  "searchAssessment": {
+    "title": "No usable evidence from this search",
+    "reasons": {
+      "verified": "Usable evidence found.",
+      "no_results": "The search provider returned no usable content. Adjust the query or check the date and source scope.",
+      "irrelevant": "The model judged the results unrelated to the research goal or requested time window.",
+      "no_findings": "Potentially relevant sources were found, but no findings answered the question.",
+      "unmatched_sources": "Extracted findings could not be matched to returned, relevant sources and were excluded from the report.",
+      "unmatched_quotes": "Source excerpts could not be matched to retrieved content; these findings were excluded from the report."
+    },
+    "counts": "Latest search: {results} results, {relevant} judged relevant; {findings} findings extracted, {verified} verified.",
+    "extractionRetried": "Extraction of verbatim excerpts was retried."
+  }
+}
